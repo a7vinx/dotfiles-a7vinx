@@ -1,0 +1,9 @@
+syntax on
+set tabstop=4
+set expandtab
+set sw=2
+set smartindent
+set cindent
+set cursorline
+set number
+set hlsearch
