@@ -4,7 +4,7 @@
 export LS_OPTIONS='--color=auto'
 eval "`dircolors`"
 alias ls='ls $LS_OPTIONS'
-alias ll='ls $LS_OPTIONS -l'
+alias ll='ls $LS_OPTIONS -lh'
 alias l='ls $LS_OPTIONS -lA'
 
 # Some more alias to avoid making mistakes:
@@ -17,3 +17,6 @@ set -o vi
 
 # Env variable for python
 export PYTHONDONTWRITEBYTECODE=x
+
+# list directories size
+alias lds='du -h --max-depth=1'

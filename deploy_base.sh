@@ -28,7 +28,7 @@ function config_bash(){
 
 function config_hostname(){
   echo -n 'Configure hostname...'
-  echo "Arvin_X-${hostname}" > /etc/hostname
+  hostname $hostname
   echo 'Done.'
 }
 
