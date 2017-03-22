@@ -23,9 +23,15 @@ make
 sudo make install
 
 
-cp ../.config/i3/config ~/.config/i3/config
-cp ../.config/wallpapers/cur.jpg ~/.config/wallpapers/cur.jpg
-cp ../.compton.conf ~/.compton.conf
-cp ../.Xresources ~/.Xresources
-cp ../.xinitrc ~/.xinitrc
+# Copy configuration files
+cd ../../
 
+cp ../.config/i3/config /root/.config/i3/config
+cp ../.config/wallpapers/cur.jpg /root/.config/wallpapers/cur.jpg
+cp ../.compton.conf /root/.compton.conf
+cp ../.Xresources /root/.Xresources
+cp ../.xinitrc /root/.xinitrc
+
+sudo cp ../xorg.conf /etc/X11/
+
+sudo xhost +
