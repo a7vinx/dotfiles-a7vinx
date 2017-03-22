@@ -10,15 +10,16 @@ function prompt(){
 
 function config_apt(){
   echo 'Configure apt...'
-  echo '# kali rolling' >> /etc/apt/sources.list
-  echo 'deb http://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list
-  apt-get update
+  sudo cp /etc/apt/sources.list /etc/apt/sources.list.bck
+  sudo echo '# kali rolling' > /etc/apt/sources.list
+  sudo echo 'deb http://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list
+  sudo apt-get update
   echo 'Configure apt...Done.'
 }
 
 function config_bash(){
   echo 'Configure bash...'
-  cp .bashrc ~/.bashrc
+  cp ../.bashrc ~/.bashrc
   read -p 'Input hostname: ' hostname
   echo '' >> ~/.bashrc 
   echo '# PS1' >> ~/.bashrc
@@ -28,20 +29,20 @@ function config_bash(){
 
 function config_hostname(){
   echo -n 'Configure hostname...'
-  hostname $hostname
+  sudo hostname $hostname
   echo 'Done.'
 }
 
 function config_vim(){
   echo -n 'Configure vim...'
-  cp .vimrc ~/.vimrc
+  cp ../.vimrc ~/.vimrc
   echo 'Done.'
 }
 
 function config_tmux(){
   echo 'Configure tmux...'
-  apt-get install tmux -y
-  cp .tmux.conf ~/.tmux.conf
+  sudo apt-get install tmux -y
+  cp ../.tmux.conf ~/.tmux.conf
   echo 'Configure tmux...Done.'
 }
 

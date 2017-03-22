@@ -4,7 +4,7 @@
 
 # ida, jeb, jadx icons
 echo -n "Add icons in dock..."
-cat > /usr/share/applications/ida.desktop <<EOF
+sudo cat > /usr/share/applications/ida.desktop <<EOF
 [Desktop Entry]                                                             
 Type=Application
 Name=IDA
@@ -14,7 +14,7 @@ Exec=wine /root/tools/ida/idaq.exe
 Terminal=false
 EOF
 
-cat > /usr/share/applications/ida64.desktop <<EOF
+sudo cat > /usr/share/applications/ida64.desktop <<EOF
 [Desktop Entry]                                                             
 Type=Application
 Name=IDA64
@@ -24,7 +24,7 @@ Exec=wine /root/tools/ida/idaq64.exe
 Terminal=false
 EOF
 
-cat > /usr/share/applications/jeb.desktop <<EOF
+sudo cat > /usr/share/applications/jeb.desktop <<EOF
 [Desktop Entry]                                                             
 Type=Application
 Name=jeb
@@ -34,7 +34,7 @@ Exec=/root/tools/jeb/bin/jeb
 Terminal=false
 EOF
 
-cat > /usr/share/applications/jadx.desktop <<EOF
+sudo cat > /usr/share/applications/jadx.desktop <<EOF
 [Desktop Entry]                                                             
 Type=Application
 Name=jadx
