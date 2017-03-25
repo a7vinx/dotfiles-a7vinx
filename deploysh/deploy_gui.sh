@@ -33,5 +33,3 @@ cp ../.Xresources /root/.Xresources
 cp ../.xinitrc /root/.xinitrc
 
 sudo cp ../xorg.conf /etc/X11/
-
-sudo xhost +
