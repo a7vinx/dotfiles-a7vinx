@@ -1,0 +1,11 @@
+[Unit]
+Description=autossh.service
+After=network-online.target
+
+[Service]
+User=a7vinx
+ExecStart=/usr/bin/autossh -M 0 -NR *:2222:127.0.0.1:22 root@t0.a7vinx.me -i /home/a7vinx/.ssh/id_rsa 
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

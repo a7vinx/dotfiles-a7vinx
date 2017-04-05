@@ -177,3 +177,5 @@ bindsym $mod+l focus right
 bindsym $mod+Shift+h split h
 bindsym $mod+Shift+v split v
 
+bindsym $mod+Shift+Return exec chromium --proxy-server=SOCKS5://127.0.0.1:1080
+

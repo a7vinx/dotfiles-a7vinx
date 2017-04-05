@@ -1,10 +1,13 @@
 #!/bin/bash
-# Some Debian configuration for myself.
+
 # By Arvin.X.
 
-sudo apt-get install xorg feh compton -y
+# Install xorg etc.
+# Note that xserver-xorg-legacy is used for non-root user to use startx. 
+sudo apt-get install xorg feh compton xserver-xorg-legacy chromium font-noto -y
 
-# compile i3-gaps
+
+# Install i3-gaps from source
 sudo apt-get install libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev -y 
 
 # clone the repository
@@ -26,10 +29,19 @@ sudo make install
 # Copy configuration files
 cd ../../
 
-cp ../.config/i3/config /root/.config/i3/config
-cp ../.config/wallpapers/cur.jpg /root/.config/wallpapers/cur.jpg
-cp ../.compton.conf /root/.compton.conf
-cp ../.Xresources /root/.Xresources
-cp ../.xinitrc /root/.xinitrc
-
+cp -r ../.config ~/
+cp ../.compton.conf ~/.compton.conf
+cp ../.Xresources ~/.Xresources
+cp ../.xinitrc ~/.xinitrc
 sudo cp ../xorg.conf /etc/X11/
+
+# Enable chromium extension
+echo "export CHROMIUM_FLAGS='$CHROMIUM_FLAGS --enable-remote-extensions'"  \
+       > /etc/chromium.d/enable-remote-extensions
+
+# Configure custom services
+sudo cp ../services/*.service /etc/systemd/system/
+sudo systemctl enable autossh.service sslocal.service
+sudo systemctl start autossh.service sslocal.service
+
+

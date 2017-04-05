@@ -1,0 +1,11 @@
+[Unit]
+Description=sslocal.service
+After=network.target
+
+[Service]
+User=a7vinx
+ExecStart=/usr/bin/sslocal -c /home/a7vinx/.config/ss.conf
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
